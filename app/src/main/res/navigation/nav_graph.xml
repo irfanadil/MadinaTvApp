@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/appointmentListFragment">
+
+    <fragment
+        android:id="@+id/appointmentListFragment"
+        android:name="com.usa.madina.mosques.ui.initialscreen.InitialFragment"
+        android:label="Appointments"
+        tools:layout="@layout/fragment_initial">
+
+        <action
+            android:id="@+id/action_appointmentListFragment_to_authenticate"
+            app:destination="@id/authenticate" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/authenticate"
+        android:name="com.usa.madina.mosques.ui.authenticate.AuthenticateFragment"
+        android:label="Appointments"
+        tools:layout="@layout/fragment_initial">
+
+        <action
+            android:id="@+id/action_authenticate_to_slidesFragment"
+            app:destination="@id/slidesFragment" />
+        <action
+            android:id="@+id/action_authenticate_to_prayerTimesFragment"
+            app:destination="@id/prayerTimesFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/prayerTimesFragment"
+        android:name="com.usa.madina.mosques.ui.prayers.PrayerTimesFragment"
+        android:label="Appointments"
+        tools:layout="@layout/fragment_initial">
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/slidesFragment"
+        android:name="com.usa.madina.mosques.ui.slides.SlidesFragment"
+        android:label="Appointments"
+        tools:layout="@layout/fragment_initial">
+
+    </fragment>
+
+
+
+
+</navigation>
