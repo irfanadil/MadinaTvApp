@@ -7,7 +7,6 @@ import com.usa.madina.mosques.repo.data.PrayerTimingModel
 import com.usa.madina.mosques.repo.data.SlidesModel
 import retrofit2.http.GET
 import retrofit2.http.Header
-import retrofit2.http.Headers
 import retrofit2.http.POST
 
 interface ServiceApi {
