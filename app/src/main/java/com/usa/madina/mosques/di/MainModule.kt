@@ -1,11 +1,14 @@
 package com.usa.madina.mosques.di
 
+import android.content.Context
 import com.google.gson.GsonBuilder
 import com.usa.madina.mosques.repo.network.BearerTokenInterceptor
 import com.usa.madina.mosques.repo.network.ServiceApi
+import com.usa.madina.mosques.repo.storage.PreferencesHelper
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -38,6 +41,12 @@ class MainModule {
     @Singleton
     fun getClient(retrofit: Retrofit): ServiceApi{
         return retrofit.create(ServiceApi::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun getPreferencesHelper(@ApplicationContext context: Context ): PreferencesHelper{
+        return PreferencesHelper(context)
     }
 
 }
