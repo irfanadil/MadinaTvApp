@@ -20,42 +20,20 @@ class AuthenticateRepo @Inject constructor(private val serviceApi: ServiceApi , 
     }
 
     suspend fun getUserDetail(userName:String, password:String, appType: String): ApiResponse<UserDataModel>  {
-
         preferencesHelper.getUserDataModel()?.let { return ApiResponse.Success(it) }
-
         try {
             //val authResponse = serviceApi.getAuthenticate(getBasicAuthHeader(userName, password))
             val deviceDetailResponse = serviceApi.getDeviceDetails( passKey = "MASJID_DISPLAY" )
+
             val clientConfigurationResponse = serviceApi.getClientConfigurations()
             val userDataModel = UserDataModel(null, deviceDetailResponse, clientConfigurationResponse)
             preferencesHelper.saveUserDataModel(userDataModel) // Save to SharedPreferences
-            return ApiResponse.Success(userDataModel)
+            return ApiResponse.Success(UserDataModel(null, deviceDetailResponse, null))
         }
         catch (e: Exception){
             return ApiResponse.Error(e.toString())
         }
     }
 
-    suspend fun getDeviceDetails(passKey: String): ApiResponse<DeviceDetailsModel>  {
-        try {
-            val response = serviceApi.getDeviceDetails( passKey = "MASJID_DISPLAY" )
-            Log.e("response ",response.toString())
-            return ApiResponse.Success(response)
-        }
-        catch (e: Exception){
-            Log.e("response ",e.toString())
-            return ApiResponse.Error(e.toString())
-        }
-    }
-
-    suspend fun getClientConfigurations(): ApiResponse<ClientConfigurationModel>  {
-        try {
-            val response = serviceApi.getClientConfigurations()
-            return ApiResponse.Success(response)
-        }
-        catch (e: Exception){
-            return ApiResponse.Error(e.toString())
-        }
-    }
 
 }

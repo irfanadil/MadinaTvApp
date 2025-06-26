@@ -5,4 +5,4 @@ import com.usa.madina.mosques.repo.data.ClientConfigurationModel
 import com.usa.madina.mosques.repo.data.DeviceDetailsModel
 
 data class UserDataModel(val authenticateModel: AuthenticateModel?, val deviceDetailsModel: DeviceDetailsModel,
-    val configurationModel: ClientConfigurationModel)
+    val configurationModel: ClientConfigurationModel?)

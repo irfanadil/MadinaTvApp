@@ -22,7 +22,7 @@ interface ServiceApi {
     @GET("v1/client/devices/123456")
     suspend fun getDeviceDetails(@Header("x-login-app-type") passKey: String): DeviceDetailsModel
 
-    @GET("oauth/v1/client/demo")
+    @GET("v1/client/demo")
     suspend fun getClientConfigurations(): ClientConfigurationModel
 
     @GET("v1/client/prayerTimes")

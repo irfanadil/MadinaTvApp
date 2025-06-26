@@ -19,13 +19,8 @@ class AuthenticateViewModel  @Inject constructor(val repo: AuthenticateRepo) : V
 
     fun authenticateUser(userName:String, password:String) {
         viewModelScope.launch(Dispatchers.IO) {
-            when (val result = repo.getUserDetail(userName, password, "MASJID_DISPLAY")) {
-                is ApiResponse.Error -> {}
-                ApiResponse.Loading -> {}
-                is ApiResponse.Success -> {
-                    _userDetailMutableState.value = result
-                }
-            }
+            val result = repo.getUserDetail(userName, password, "MASJID_DISPLAY")
+
         }
     }
 
