@@ -8,13 +8,6 @@ import com.usa.madina.mosques.ui.domain.UserDataModel
 import kotlinx.serialization.Serializable
 import javax.inject.Inject
 
-@Serializable
-data class TestDataClass(
-    val createdDate: String =  "Irfan ",
-    val lastModifiedDate: String = "Cyprus"
-)
-
-
 class AuthenticateRepo @Inject constructor(private val serviceApi: ServiceApi , private val preferencesHelper: PreferencesHelper) {
 
     private fun getBasicAuthHeader(username: String, password: String): String {

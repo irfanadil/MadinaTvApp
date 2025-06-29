@@ -3,7 +3,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.usa.madina.mosques.repo.AuthenticateRepo
 import com.usa.madina.mosques.repo.network.ApiResponse
-import com.usa.madina.mosques.ui.domain.UserDataModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -14,8 +13,8 @@ import javax.inject.Inject
 @HiltViewModel
 class AuthenticateViewModel  @Inject constructor(val repo: AuthenticateRepo) : ViewModel(){
 
-    private val _userDetailMutableState = MutableStateFlow<UserDataModel>(UserDataModel(null, null, null))
-    val userDetailStateFlow = _userDetailMutableState.asStateFlow()
+    private val _userDetailReceived = MutableStateFlow<Boolean>(false)
+    val userDetailReceived = _userDetailReceived.asStateFlow()
 
     fun authenticateUser(userName:String, password:String) {
         viewModelScope.launch(Dispatchers.IO) {
@@ -28,7 +27,7 @@ class AuthenticateViewModel  @Inject constructor(val repo: AuthenticateRepo) : V
 
                 }
                 is ApiResponse.Success -> {
-                    _userDetailMutableState.value = result.data
+                    _userDetailReceived.value = result.data
                 }
             }
 

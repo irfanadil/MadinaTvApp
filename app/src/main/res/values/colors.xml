@@ -13,4 +13,12 @@
     <color name="status_pending">#FF9800</color>
     <color name="status_completed">#2196F3</color>
     <color name="status_cancelled">#F44336</color>
+
+
+    <!-- Prayer Screen -->
+    <color name="light_grey_background">#e0dedf</color>
+    <color name="light_white_background">#f9f9f9</color>
+    <color name="white_background">#ffffff</color>
+    <color name="green_text_color">#2c6169</color>
+
 </resources>
