@@ -4,4 +4,6 @@ plugins {
     alias(libs.plugins.kotlin.android) apply false
     alias(libs.plugins.kotlin.android.args) apply false
     id("com.google.dagger.hilt.android") version "2.56.1" apply false
+    //kotlin("jvm") version "2.2.0" // or kotlin("multiplatform") or any other kotlin plugin
+    //kotlin("plugin.serialization") version "2.2.0"
 }

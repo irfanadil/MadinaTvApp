@@ -48,10 +48,3 @@ data class LastModifiedBy(
 
 
 
-data class Audit(
-    val createdDate: String,
-    val lastModifiedDate: String
-)
-
-
-

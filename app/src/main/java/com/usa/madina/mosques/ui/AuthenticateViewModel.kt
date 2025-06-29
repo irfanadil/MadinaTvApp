@@ -14,12 +14,23 @@ import javax.inject.Inject
 @HiltViewModel
 class AuthenticateViewModel  @Inject constructor(val repo: AuthenticateRepo) : ViewModel(){
 
-    private val _userDetailMutableState = MutableStateFlow<ApiResponse<UserDataModel>>(ApiResponse.Loading)
+    private val _userDetailMutableState = MutableStateFlow<UserDataModel>(UserDataModel(null, null, null))
     val userDetailStateFlow = _userDetailMutableState.asStateFlow()
 
     fun authenticateUser(userName:String, password:String) {
         viewModelScope.launch(Dispatchers.IO) {
             val result = repo.getUserDetail(userName, password, "MASJID_DISPLAY")
+            when(result){
+                is ApiResponse.Error -> {
+
+                }
+                ApiResponse.Loading -> {
+
+                }
+                is ApiResponse.Success -> {
+                    _userDetailMutableState.value = result.data
+                }
+            }
 
         }
     }
