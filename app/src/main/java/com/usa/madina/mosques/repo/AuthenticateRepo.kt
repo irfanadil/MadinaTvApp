@@ -1,9 +1,6 @@
 package com.usa.madina.mosques.repo
 
 import android.util.Base64
-import android.util.Log
-import com.usa.madina.mosques.repo.data.ClientConfigurationModel
-import com.usa.madina.mosques.repo.data.DeviceDetailsModel
 import com.usa.madina.mosques.repo.network.ApiResponse
 import com.usa.madina.mosques.repo.network.ServiceApi
 import com.usa.madina.mosques.repo.storage.PreferencesHelper
