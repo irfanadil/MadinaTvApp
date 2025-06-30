@@ -9,6 +9,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import com.usa.madina.mosques.Utils
 import com.usa.madina.mosques.databinding.FragmentPrayerBinding
 import com.usa.madina.mosques.repo.data.PrayerTimingModel
 import com.usa.madina.mosques.repo.network.ApiResponse
@@ -73,7 +74,7 @@ class PrayerTimesFragment: Fragment() {
 
         val prayerData = model.prayerTimes[0]
         binding.fajrStarts.text = prayerData.fajr.adhaanTime
-        binding.fajrStarts.text = prayerData.fajr.iqamahTime
+        binding.fajrIqamah.text = prayerData.fajr.iqamahTime
 
         binding.dhuhrStarts.text = prayerData.dhuhr.adhaanTime
         binding.dhuhrIqamah.text = prayerData.dhuhr.iqamahTime
@@ -86,6 +87,12 @@ class PrayerTimesFragment: Fragment() {
 
         binding.ishaStarts.text = prayerData.isha.adhaanTime
         binding.ishaIqamah.text = prayerData.isha.iqamahTime
+
+        binding.todayDate.text = prayerData.date
+        binding.todayIslamicDate.text = prayerData.hijriDate
+
+        binding.sunriseTime.text = "SUNRISE  "+prayerData.sunrise
+        binding.ishraqTime.text  = "ISHRAQ  "+ Utils.add15Minutes(prayerData.sunrise)
 
     }
 
