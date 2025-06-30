@@ -16,6 +16,7 @@ import java.util.Timer
 import java.util.TimerTask
 import kotlin.getValue
 import com.usa.madina.mosques.R
+import com.usa.madina.mosques.ui.slides.data.GalleryItem
 
 class SlidesFragment: Fragment() {
 
@@ -28,9 +29,9 @@ class SlidesFragment: Fragment() {
     private lateinit var autoScrollRunnable: Runnable
 
     private val imagePaths = listOf(
-        "https://example.com/image1.jpg",
-        "https://example.com/image2.jpg",
-        "https://example.com/image3.jpg",
+        "https://media.madinaapps.com/prod/kiosk-cp-media/client_6/slideshow_275/bWFnbm9saWEtMjIxODc4OF8xOTIwLmpwZzE1NzkwNjA0MTM0MTQ=.jpg",
+        "https://media.madinaapps.com/prod/kiosk-cp-media/client_6/gallery-items/a3bcd084-ff5e-4fa4-9f2e-4183c51a51a9.jpg",
+        "https://media.madinaapps.com/prod/kiosk-cp-media/client_6/slideshow_275/c3Vuc2V0LTEzNzMxNzFfMTkyMC5qcGcxNTc5MDYwNDI4Mzkz.jpg",
         "/storage/emulated/0/DCIM/image4.jpg"
     )
 
@@ -55,17 +56,43 @@ class SlidesFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupViewPager()
-        setupAutoScroll()
+
+        // Create gallery items with fragments mixed in
+        val galleryItems = listOf(
+            GalleryItem.ImageItem("https://example.com/image1.jpg"),
+            GalleryItem.ImageItem("https://example.com/image2.jpg"),
+            //GalleryItem.FragmentItem(CustomFragment()),  // Fragment between images
+            GalleryItem.ImageItem("https://example.com/image3.jpg"),
+            GalleryItem.ImageItem("https://example.com/image4.jpg")
+        )
+
+        setupViewPager(galleryItems)
+        setupAutoScroll(galleryItems.size)
     }
 
-    private fun setupViewPager() {
-        viewPager = binding.viewPager
-        viewPager.adapter = GalleryAdapter(requireContext(), imagePaths)
-        viewPager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
 
-        // Add page margin for gallery effect
-        viewPager.setPageTransformer(MarginPageTransformer(resources.getDimensionPixelSize(R.dimen.page_margin)))
+
+
+    private fun setupViewPager(items: List<GalleryItem>) {
+        viewPager = binding.viewPager
+        viewPager.adapter = GalleryAdapter(this, items)
+        viewPager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+        viewPager.offscreenPageLimit = 3  // Keep fragments in memory
+
+        // Add page margin
+        viewPager.setPageTransformer(MarginPageTransformer(
+            resources.getDimensionPixelSize(R.dimen.page_margin)
+        ))
+    }
+
+    private fun setupAutoScroll(totalItems: Int) {
+        autoScrollRunnable = object : Runnable {
+            override fun run() {
+                val nextItem = (viewPager.currentItem + 1) % totalItems
+                viewPager.setCurrentItem(nextItem, true)
+                handler.postDelayed(this, 10000)
+            }
+        }
 
         viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
@@ -75,25 +102,13 @@ class SlidesFragment: Fragment() {
         })
     }
 
-    private fun setupAutoScroll() {
-        autoScrollRunnable = object : Runnable {
-            override fun run() {
-                val nextItem = (viewPager.currentItem + 1) % imagePaths.size
-                viewPager.setCurrentItem(nextItem, true)
-                handler.postDelayed(this, 10000)  // Reschedule after 10 seconds
-            }
-        }
-    }
-
     override fun onResume() {
         super.onResume()
-        // Start auto-scroll when activity is visible
         handler.postDelayed(autoScrollRunnable, 10000)
     }
 
     override fun onPause() {
         super.onPause()
-        // Stop auto-scroll when activity is not visible
         handler.removeCallbacks(autoScrollRunnable)
     }
 
@@ -101,4 +116,12 @@ class SlidesFragment: Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+
+
+
+
+
+
+
 }
