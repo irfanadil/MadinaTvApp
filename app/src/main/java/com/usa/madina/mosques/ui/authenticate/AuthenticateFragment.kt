@@ -50,7 +50,7 @@ class AuthenticateFragment : Fragment() {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED){
                 viewModel.userDetailReceived.collect{
                     if(it)
-                        findNavController().navigate(R.id.action_authenticate_to_prayerTimesFragment)
+                        findNavController().navigate(R.id.action_authenticate_to_slidesFragment)
                 }
             }
         }

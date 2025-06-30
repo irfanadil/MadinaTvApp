@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">قناة المدينة</string>
     <string name="bismillah">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</string>
+    <string name="setting_screen">Settings Screen</string>
+    <string name="slide_screen">Slides Screen</string>
     <string name="userName">demo</string>
     <string name="password">hPy225H$e#SffXL3</string>
 </resources>
