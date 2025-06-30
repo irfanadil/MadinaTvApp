@@ -28,26 +28,21 @@
         app:srcCompat="@drawable/top_pattern" />
 
 
-
-
-
-
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout6"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@color/light_grey_background"
         app:layout_constraintHeight_percent="0.85"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_percent="0.65">
+        app:layout_constraintWidth_percent="0.60">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/prayerLabelLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="6dp"
-            android:background="@color/white_background"
             android:translationZ="100dp"
             app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
             app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
@@ -159,9 +154,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="24dp"
                 android:text="04:34"
-                android:textStyle="bold"
                 android:textColor="@color/black"
                 android:textSize="21sp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/fajrStarts"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/fajrStarts" />
@@ -228,14 +223,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="24dp"
                 android:text="04:34"
-                android:textStyle="bold"
                 android:textColor="@color/black"
                 android:textSize="21sp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/dhuhrStarts"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/dhuhrStarts" />
-
-
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -299,9 +292,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="24dp"
                 android:text="04:34"
-                android:textStyle="bold"
                 android:textColor="@color/black"
                 android:textSize="21sp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/asrStarts"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/asrStarts" />
@@ -367,9 +360,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="24dp"
                 android:text="04:34"
-                android:textStyle="bold"
                 android:textColor="@color/black"
                 android:textSize="21sp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/maghribStarts"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/maghribStarts" />
@@ -436,22 +429,18 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="24dp"
                 android:text="04:34"
-                android:textStyle="bold"
                 android:textColor="@color/black"
                 android:textSize="21sp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/ishaStarts"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/ishaStarts" />
 
 
-
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -461,12 +450,219 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.85"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_percent="0.35">
+        app:layout_constraintWidth_percent="0.40">
 
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/setting_icon" />
+
+        <TextView
+            android:id="@+id/todayDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:text="JUNE 3, 2025"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView7"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageView7" />
+
+        <TextView
+            android:id="@+id/sunriseTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:text="SUNRISE 05:37AM"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/todayIslamicDate" />
+
+        <TextView
+            android:id="@+id/todayIslamicDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="7 DHU AL-HIJJAH 1446"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/todayDate"
+            app:layout_constraintStart_toStartOf="@+id/todayDate"
+            app:layout_constraintTop_toBottomOf="@+id/todayDate" />
+
+        <TextView
+            android:id="@+id/ishraqTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:text="ISHRAQ 05:52 AM"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/sunriseTime"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/sunriseTime" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="01:17"
+            android:textColor="@color/black"
+            android:textSize="54sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sunriseTime" />
+
+        <TextView
+            android:id="@+id/nextIqamahTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NEXT IQAMAH IN"
+            android:textColor="@color/green_text_color"
+            android:textSize="11sp"
+            app:layout_constraintEnd_toEndOf="@+id/textView6"
+            app:layout_constraintStart_toStartOf="@+id/textView6"
+            app:layout_constraintTop_toBottomOf="@+id/imageView8" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00:03:45"
+            android:textColor="@color/green_text_color"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/nextIqamahTime"
+            app:layout_constraintStart_toStartOf="@+id/nextIqamahTime"
+            app:layout_constraintTop_toBottomOf="@+id/nextIqamahTime" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="JUMUAH TIMING"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/textView8"
+            app:layout_constraintStart_toStartOf="@+id/textView8"
+            app:layout_constraintTop_toBottomOf="@+id/imageView9" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="1st JUMUAH"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@+id/textView12"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+        <TextView
+            android:id="@+id/firstJummaTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="01:00"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/textView10"
+            app:layout_constraintStart_toStartOf="@+id/textView10"
+            app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2nd JUMUAH"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView10"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/textView10"
+            app:layout_constraintTop_toTopOf="@+id/textView10"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/SecondJummahTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="02:00"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/firstJummaTime"
+            app:layout_constraintEnd_toEndOf="@+id/textView12"
+            app:layout_constraintStart_toStartOf="@+id/textView12"
+            app:layout_constraintTop_toTopOf="@+id/firstJummaTime" />
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:layout_marginEnd="48dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView6"
+            app:srcCompat="@drawable/h_border" />
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:layout_marginEnd="48dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView8"
+            app:srcCompat="@drawable/h_border" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/imageView22"
+        android:layout_width="0dp"
+        android:layout_height="10dp"
+        android:translationZ="100dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomContainer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.5"
+        app:srcCompat="@drawable/pattern_bottom" />
+
+    <ImageView
+        android:id="@+id/imageView32"
+        android:layout_width="0dp"
+        android:layout_height="10dp"
+        android:translationZ="100dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintWidth_percent="0.5"
+        app:srcCompat="@drawable/pattern_bottom" />
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottomContainer"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:background="@color/white_background"
@@ -474,7 +670,8 @@
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_percent="0.15"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout6">
 
         <ImageView
             android:id="@+id/imageView4"
@@ -506,13 +703,13 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
-            android:layout_marginStart="32dp"
-            android:textSize="20sp"
-            android:textColor="@color/green_text_color"
-            android:textStyle="bold"
             android:text="Tomorrow Asar at 5:45"
+            android:textColor="@color/green_text_color"
+            android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imageView5"
             app:layout_constraintTop_toTopOf="parent" />

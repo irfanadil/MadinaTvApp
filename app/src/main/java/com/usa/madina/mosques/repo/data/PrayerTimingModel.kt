@@ -1,8 +1,8 @@
 package com.usa.madina.mosques.repo.data
 
 data class PrayerTimingModel(
-    val prayerTimes: List<PrayerTime>,
-    val settings: Settings
+    val prayerTimes: List<PrayerTime> = listOf(),
+    val settings: Settings?= null
 )
 
 

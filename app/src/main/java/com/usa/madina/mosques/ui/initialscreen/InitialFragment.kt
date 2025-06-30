@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.usa.madina.mosques.databinding.FragmentInitialBinding
-import com.usa.madina.mosques.ui.AuthenticateViewModel
+import com.usa.madina.mosques.ui.MainViewModel
 import kotlin.getValue
 import com.usa.madina.mosques.R
 
@@ -16,7 +16,7 @@ class InitialFragment : Fragment() {
 
     private var _binding: FragmentInitialBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: AuthenticateViewModel by activityViewModels()
+    private val viewModel: MainViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,

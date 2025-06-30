@@ -5,10 +5,9 @@ import com.usa.madina.mosques.repo.network.ApiResponse
 import com.usa.madina.mosques.repo.network.ServiceApi
 import com.usa.madina.mosques.repo.storage.PreferencesHelper
 import com.usa.madina.mosques.ui.domain.UserDataModel
-import kotlinx.serialization.Serializable
 import javax.inject.Inject
 
-class AuthenticateRepo @Inject constructor(private val serviceApi: ServiceApi , private val preferencesHelper: PreferencesHelper) {
+class UserDetailRepo @Inject constructor(private val serviceApi: ServiceApi, private val preferencesHelper: PreferencesHelper) {
 
     private fun getBasicAuthHeader(username: String, password: String): String {
         //val credentials = "$username:$password"

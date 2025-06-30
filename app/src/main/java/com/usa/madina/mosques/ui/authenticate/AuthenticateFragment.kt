@@ -11,7 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import kotlin.getValue
-import com.usa.madina.mosques.ui.AuthenticateViewModel
+import com.usa.madina.mosques.ui.MainViewModel
 import com.usa.madina.mosques.R
 import com.usa.madina.mosques.databinding.FragmentAuthenticateBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -23,7 +23,7 @@ class AuthenticateFragment : Fragment() {
     private var _binding: FragmentAuthenticateBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: AuthenticateViewModel by activityViewModels()
+    private val viewModel: MainViewModel by activityViewModels()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

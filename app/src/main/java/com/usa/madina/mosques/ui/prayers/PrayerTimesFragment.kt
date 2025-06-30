@@ -9,15 +9,12 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.navigation.fragment.findNavController
-import com.usa.madina.mosques.R
-import com.usa.madina.mosques.databinding.FragmentAuthenticateBinding
 import com.usa.madina.mosques.databinding.FragmentPrayerBinding
-import com.usa.madina.mosques.repo.network.ServiceApi
-import com.usa.madina.mosques.ui.AuthenticateViewModel
+import com.usa.madina.mosques.repo.data.PrayerTimingModel
+import com.usa.madina.mosques.repo.network.ApiResponse
+import com.usa.madina.mosques.ui.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 import kotlin.getValue
 
 @AndroidEntryPoint
@@ -26,7 +23,8 @@ class PrayerTimesFragment: Fragment() {
     private var _binding: FragmentPrayerBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: AuthenticateViewModel by activityViewModels()
+    private val viewModel: MainViewModel by activityViewModels()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -39,21 +37,56 @@ class PrayerTimesFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupListeners()
-        observeUserAuthenticationResponse()
+        observePrayerResponse()
+        loadData()
+    }
+
+    private fun loadData(){
+        viewModel.getPrayersData()
     }
 
     private fun setupListeners(){
 
     }
 
-    private fun observeUserAuthenticationResponse(){
+    private fun observePrayerResponse(){
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED){
-                viewModel.userDetailReceived.collect{
+                viewModel.prayerApiResponse.collect{ result->
+                    when(result){
+                        is ApiResponse.Error -> {
 
+                        }
+                        ApiResponse.Loading -> {
+
+                        }
+                        is ApiResponse.Success -> {
+                            displayPrayerData(result.data)
+                        }
+                    }
                 }
             }
         }
+    }
+
+    private fun displayPrayerData(model: PrayerTimingModel){
+
+        val prayerData = model.prayerTimes[0]
+        binding.fajrStarts.text = prayerData.fajr.adhaanTime
+        binding.fajrStarts.text = prayerData.fajr.iqamahTime
+
+        binding.dhuhrStarts.text = prayerData.dhuhr.adhaanTime
+        binding.dhuhrIqamah.text = prayerData.dhuhr.iqamahTime
+
+        binding.asrStarts.text = prayerData.asr.adhaanTime
+        binding.asrIqamah.text = prayerData.asr.iqamahTime
+
+        binding.maghribStarts.text = prayerData.maghrib.adhaanTime
+        binding.maghribIqamah.text = prayerData.maghrib.iqamahTime
+
+        binding.ishaStarts.text = prayerData.isha.adhaanTime
+        binding.ishaIqamah.text = prayerData.isha.iqamahTime
+
     }
 
     override fun onDestroyView() {

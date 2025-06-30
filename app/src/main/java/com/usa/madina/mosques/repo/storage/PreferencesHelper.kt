@@ -5,15 +5,13 @@ import android.util.Log
 import com.google.gson.Gson
 import com.usa.madina.mosques.ui.domain.UserDataModel
 import androidx.core.content.edit
-import com.usa.madina.mosques.repo.TestDataClass
-import com.usa.madina.mosques.repo.data.Country
 import kotlinx.serialization.SerializationException
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 
 class PreferencesHelper(context: Context) {
     val sharedPrefs = context.getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
-    private val gson = Gson()
+
 
     fun saveUserDataModel(userDataModel: UserDataModel) {
         try {
@@ -51,6 +49,7 @@ class PreferencesHelper(context: Context) {
 
     /*
     //Serialize using Gson and reflection and can not handle null values or sealed class
+    private val gson = Gson()
 
     fun saveUserDataModel(userDataModel: UserDataModel) {
         val userJson = gson.toJson(userDataModel)
