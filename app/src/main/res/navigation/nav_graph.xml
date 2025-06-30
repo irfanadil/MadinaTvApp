@@ -3,15 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/appointmentListFragment">
+    app:startDestination="@id/initialFragmentId">
 
     <fragment
-        android:id="@+id/appointmentListFragment"
+        android:id="@+id/initialFragmentId"
         android:name="com.usa.madina.mosques.ui.initialscreen.InitialFragment"
         android:label="Appointments"
         tools:layout="@layout/fragment_initial">
 
         <action
+
             android:id="@+id/action_appointmentListFragment_to_authenticate"
             app:destination="@id/authenticate" />
     </fragment>
@@ -23,9 +24,14 @@
         tools:layout="@layout/fragment_initial">
 
         <action
+            app:popUpTo="@+id/initialFragmentId"
+            app:popUpToInclusive="true"
             android:id="@+id/action_authenticate_to_slidesFragment"
             app:destination="@id/slidesFragment" />
         <action
+
+            app:popUpToInclusive="true"
+            app:popUpTo="@+id/initialFragmentId"
             android:id="@+id/action_authenticate_to_prayerTimesFragment"
             app:destination="@id/prayerTimesFragment" />
     </fragment>

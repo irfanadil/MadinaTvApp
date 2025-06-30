@@ -1,5 +1,9 @@
 package com.usa.madina.mosques.repo.data
 
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.Transient
+
+@Serializable
 data class DeviceDetailsModel(
     val appType: AppType,
     val appVersion: AppVersion,
@@ -13,6 +17,7 @@ data class DeviceDetailsModel(
     val versionUpdateDate: String
 )
 
+@Serializable
 data class AppType(
     val appTypeCode: String,
     val appTypeId: String,
@@ -20,6 +25,7 @@ data class AppType(
     val isActive: Boolean
 )
 
+@Serializable
 data class AppVersion(
     val appApkPath: String,
     val appType: AppType,
@@ -30,6 +36,7 @@ data class AppVersion(
     val version: String
 )
 
+@Serializable
 data class Configurations(
     val IQAMAH_SLEEP_TIME: Int,
     val MD_BACKGROUND_IMAGE: String,
@@ -45,10 +52,11 @@ data class Configurations(
     val MD_SHOW_ATHAN_TIME: Boolean,
     val MD_SHOW_IQAMAH_TIME: Boolean,
     val MD_VERTICAL_BACKGROUND_IMAGE: String,
-    val QT_PAYMENT_OPTION: Any,
+    @Transient val QT_PAYMENT_OPTION: Any? = null,
     val STRIPE_TERMINAL_ID: String
 )
 
+@Serializable
 data class Slideshow(
     val isActive: Boolean,
     val slideShowName: String,

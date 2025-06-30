@@ -1,5 +1,8 @@
 package com.usa.madina.mosques.repo.data
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class ClientConfigurationModel(
     val alias: String,
     val audit: Audit,
@@ -23,12 +26,22 @@ data class ClientConfigurationModel(
 )
 
 
+@Serializable
+data class Audit(
+    val createdDate: String,
+    val lastModifiedDate: String
+)
+
+
+
+@Serializable
 data class Country(
     val code: String,
     val name: String,
     val shortCode: String
 )
 
+@Serializable
 data class State(
     val code: String,
     val name: String
