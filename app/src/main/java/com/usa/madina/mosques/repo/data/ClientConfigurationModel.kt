@@ -1,5 +1,6 @@
 package com.usa.madina.mosques.repo.data
 
+import android.util.Log
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -22,8 +23,20 @@ data class ClientConfigurationModel(
     val timeZoneOffset: Int,
     val updatedTime: String,
     val website: String,
-    val zipcode: String
-)
+    val zipcode: String,
+    val myChoice: String = "some my way"
+){
+    // Custom property derived from rawStatus
+    val formattedStatus: String
+        get() =country.toString() + "SUCCESS"
+
+}
+
+private fun getFillBasedOnCountry(country: Country): String{
+    Log.e("country=", country.toString())
+    return "mychoice is $country"
+}
+
 
 
 @Serializable
