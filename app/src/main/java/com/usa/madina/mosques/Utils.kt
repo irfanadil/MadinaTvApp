@@ -105,6 +105,19 @@ object Utils {
     }
 
 
+    fun convertAmToPm(timeString: String): String {
+        val parts = timeString.split(' ')
+        if (parts.size != 2) return timeString
+        val period = parts[1]
+        if (period.length != 2) return timeString
+        if (!period.equals("AM", ignoreCase = true)) return timeString
+
+        val newFirstChar = if (period[0] == 'A') 'P' else 'p'
+        val newPeriod = "$newFirstChar${period[1]}"
+        return "${parts[0]} $newPeriod"
+    }
+
+
 
 
 

@@ -96,7 +96,7 @@ class MainModule {
                     sslContext.socketFactory,
                     trustAllCerts[0] as X509TrustManager
                 )
-                .addInterceptor(BearerTokenInterceptor("eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZSI6WyJ0cnVzdCIsInJlYWQiLCJ3cml0ZSJdLCJleHAiOjE3NTE3NTA2MDUsImF1dGhvcml0aWVzIjpbIlJPTEVfU0VTU0lPTl9JRF8xNjA2ZDRiMC03NjVjLTRmNjUtYTA5NS02YjI4YWNlZDk4N2EiLCJST0xFX0NMSUVOVCIsIlJPTEVfQ0xJRU5UX0lEX2E5M2JiODFhLTMyOGEtMTFlZC1iYTFjLTBhNTMwOWZlYmVmZSJdLCJqdGkiOiJfaVhxVk9sV05id0VBbUNTX2w0bHVvQXlaQ00iLCJjbGllbnRfaWQiOiJkZW1vIn0.pU9Sgt1UpRQLZoxV2GZNsi9g0pubZ6GejCqhQYGrXsHJ8JMPGaYlzjyQXVROffmt_NNwRVtNsOyIjs71k5-v3ek4ajpO9hGcaP8z19a5ECVV2xyn0fNBPnkqdQY6F7V5OVLG2524aCUiif-VqEendz3meSz9-PeveU1gnH0FNpqhcOXDs9phuBNmd846eISSsVA9hiDHtA191KffAb11sRi8kh9un2S2eYDqKWtRd8O3FyLxgvTjVC9kngecq8KlEZDBNfSewhxIkvgJXWEPlBE3Qbi1x6iln4iAexq9G7vnfXS1OpmVSw78VWFq8A2U1rCs7aCfBbuSxs30gBeJmg"))
+                .addInterceptor(BearerTokenInterceptor("eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZSI6WyJ0cnVzdCIsInJlYWQiLCJ3cml0ZSJdLCJleHAiOjE3NTIzNTc2MDMsImF1dGhvcml0aWVzIjpbIlJPTEVfU0VTU0lPTl9JRF9lMjJlNjY0Ny1hZDc0LTRjMzEtOTdiYy05MmVlNWQzNDc5YTYiLCJST0xFX0NMSUVOVCIsIlJPTEVfQ0xJRU5UX0lEX2E5M2JiODFhLTMyOGEtMTFlZC1iYTFjLTBhNTMwOWZlYmVmZSJdLCJqdGkiOiJZbU5aNDhXUUpMbGhyRzRLaUdsS0lGR2FNLVkiLCJjbGllbnRfaWQiOiJkZW1vIn0.SymyV9-sjC5JRQgahml3IPeFbFdeYuFA2gCVc5HYofHBegyyK1WDuF_2apiVj0ICI8zdCTfp_FGZ6ltdNVAW8pEuCj5I_UMjdAc0AOU1F9nwYH-Nqg9u1KcvNS3sbT3Z1DKTpZy6JM4WyEfWbTcC-ooXlvr_3tdnNLq14PjFkxtvwnm-75DXbJdt8PgENHtcofeJfp0uinKF7sxBtcRDocjg-vVz-MTNGHlicjfO0cQq_X0QgHfSNjLN-fpTkXsYZsD_Emp9n2tcg2Y1qGqbVTf3xm-cxy0ZR3Q7u3dS3veY_LXQDpwLaZhIJ6_R_YB8gLFbK8hBZN49B0WjjQ6Ilw"))
                 .build())
             .addConverterFactory(
                 GsonConverterFactory
