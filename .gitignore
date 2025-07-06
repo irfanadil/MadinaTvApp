@@ -13,16 +13,10 @@
 .externalNativeBuild
 .cxx
 local.properties
-*.xml
-*.xml
-.idea/material_theme_project_new.xml
-.idea/kotlinc.xml
-.idea/gradle.xml
-.idea/compiler.xml
-/.idea
 *.dm
 *.apk
 /.idea
 /app/release
 /.idea
 .idea/material_theme_project_new.xml
+
