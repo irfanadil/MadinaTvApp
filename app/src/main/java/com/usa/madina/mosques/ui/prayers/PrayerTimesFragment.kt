@@ -10,6 +10,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import com.usa.madina.mosques.Utils
 import com.usa.madina.mosques.databinding.FragmentPrayerBinding
 import com.usa.madina.mosques.hideBackground
@@ -21,6 +22,7 @@ import com.usa.madina.mosques.ui.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import kotlin.getValue
+import com.usa.madina.mosques.R
 
 @AndroidEntryPoint
 class PrayerTimesFragment: Fragment() {
@@ -42,6 +44,7 @@ class PrayerTimesFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupUI()
+        setupListeners()
         observePrayerResponse()
         loadData()
     }
@@ -63,13 +66,19 @@ class PrayerTimesFragment: Fragment() {
         binding.ishaRow.hideBackground()
     }
 
+    private fun setupListeners(){
+        binding.settingButton.setOnClickListener{
+            findNavController().navigate(R.id.action_prayerTimesFragment_to_settingFragment)
+        }
+    }
+
     private fun observePrayerResponse(){
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED){
                 viewModel.prayerApiResponse.collect{ result->
                     when(result){
                         is ApiResponse.Error -> {
-
+                            Toast.makeText(requireContext(), "Prayer Time Data Not Found...", Toast.LENGTH_LONG).show()
                         }
                         ApiResponse.Loading -> {
 

@@ -8,11 +8,10 @@
     <fragment
         android:id="@+id/initialFragmentId"
         android:name="com.usa.madina.mosques.ui.initialscreen.InitialFragment"
-        android:label="Appointments"
+        android:label="InitialScreen"
         tools:layout="@layout/fragment_initial">
 
         <action
-
             android:id="@+id/action_appointmentListFragment_to_authenticate"
             app:destination="@id/authenticate" />
     </fragment>
@@ -20,8 +19,8 @@
     <fragment
         android:id="@+id/authenticate"
         android:name="com.usa.madina.mosques.ui.authenticate.AuthenticateFragment"
-        android:label="Appointments"
-        tools:layout="@layout/fragment_initial">
+        android:label="AuthenticateUser"
+        tools:layout="@layout/fragment_authenticate">
 
         <action
             app:popUpTo="@+id/initialFragmentId"
@@ -39,9 +38,24 @@
     <fragment
         android:id="@+id/prayerTimesFragment"
         android:name="com.usa.madina.mosques.ui.prayers.PrayerTimesFragment"
-        android:label="Appointments"
-        tools:layout="@layout/fragment_initial">
+        android:label="PrayerTimes"
+        tools:layout="@layout/fragment_prayer">
 
+        <action
+            android:id="@+id/action_prayerTimesFragment_to_settingFragment"
+            app:destination="@id/settingFragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.usa.madina.mosques.ui.setting.SettingFragment"
+        android:label="Settings"
+        tools:layout="@layout/fragment_setting">
+
+        <action
+            android:id="@+id/action_settingFragment_to_prayerTimesFragment"
+            app:destination="@id/prayerTimesFragment" />
     </fragment>
 
 
@@ -49,7 +63,7 @@
         android:id="@+id/slidesFragment"
         android:name="com.usa.madina.mosques.ui.slides.SlidesFragment"
         android:label="Appointments"
-        tools:layout="@layout/fragment_initial">
+        tools:layout="@layout/fragment_slides">
 
     </fragment>
 

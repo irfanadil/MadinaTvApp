@@ -456,7 +456,7 @@
         app:layout_constraintWidth_percent="0.40">
 
         <ImageView
-            android:id="@+id/imageView7"
+            android:id="@+id/settingButton"
             android:layout_width="26dp"
             android:layout_height="26dp"
             android:layout_marginTop="14dp"
@@ -474,10 +474,10 @@
             android:textColor="@color/black"
             android:textSize="12sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView7"
+            app:layout_constraintBottom_toBottomOf="@+id/settingButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/imageView7" />
+            app:layout_constraintTop_toTopOf="@+id/settingButton" />
 
         <TextView
             android:id="@+id/sunriseTime"
