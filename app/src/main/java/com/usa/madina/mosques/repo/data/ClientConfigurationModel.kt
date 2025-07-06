@@ -1,5 +1,6 @@
 package com.usa.madina.mosques.repo.data
 
+import android.util.Log
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -22,9 +23,9 @@ data class ClientConfigurationModel(
     val timeZoneOffset: Int,
     val updatedTime: String,
     val website: String,
-    val zipcode: String
+    val zipcode: String,
+    val myChoice: String = "some my way"
 )
-
 
 @Serializable
 data class Audit(

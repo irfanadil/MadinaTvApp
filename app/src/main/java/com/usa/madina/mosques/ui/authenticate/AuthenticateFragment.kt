@@ -23,6 +23,10 @@ class AuthenticateFragment : Fragment() {
     private var _binding: FragmentAuthenticateBinding? = null
     private val binding get() = _binding!!
 
+    enum class ButtonSource { SLIDER_BUTTON, PRAYER_BUTTON }
+
+    private lateinit var buttonClicked: ButtonSource
+
     private val viewModel: MainViewModel by activityViewModels()
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,7 +44,12 @@ class AuthenticateFragment : Fragment() {
     }
 
     private fun setupListeners(){
-        binding.validateButton.setOnClickListener {
+        binding.sliderButton.setOnClickListener {
+            buttonClicked = ButtonSource.SLIDER_BUTTON
+            viewModel.authenticateUser("demo","asdas")
+        }
+        binding.prayerButton.setOnClickListener {
+            buttonClicked = ButtonSource.PRAYER_BUTTON
             viewModel.authenticateUser("demo","asdas")
         }
     }
@@ -48,9 +57,13 @@ class AuthenticateFragment : Fragment() {
     private fun observeUserAuthenticationResponse(){
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED){
-                viewModel.userDetailReceived.collect{
-                    if(it)
-                        findNavController().navigate(R.id.action_authenticate_to_slidesFragment)
+                viewModel.userDetailReceived.collect{ successBoolean->
+                    if(successBoolean) {
+                        if(buttonClicked == ButtonSource.SLIDER_BUTTON)
+                            findNavController().navigate(R.id.action_authenticate_to_slidesFragment)
+                        else
+                            findNavController().navigate(R.id.action_authenticate_to_prayerTimesFragment)
+                    }
                 }
             }
         }

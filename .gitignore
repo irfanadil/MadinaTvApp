@@ -13,3 +13,14 @@
 .externalNativeBuild
 .cxx
 local.properties
+*.dm
+*.apk
+/.idea
+/app/release
+/.idea
+.idea/material_theme_project_new.xml
+
+/.idea
+/.idea
+.idea/material_theme_project_new.xml
+.idea/material_theme_project_new.xml

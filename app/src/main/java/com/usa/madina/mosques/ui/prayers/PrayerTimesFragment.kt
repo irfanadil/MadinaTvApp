@@ -100,25 +100,32 @@ class PrayerTimesFragment: Fragment() {
         binding.fajrIqamah.text = prayerData.fajr.iqamahTime
         timeList.add(prayerData.fajr.adhaanTime)
 
-        binding.dhuhrStarts.text = prayerData.dhuhr.adhaanTime
-        binding.dhuhrIqamah.text = prayerData.dhuhr.iqamahTime
-        timeList.add(prayerData.dhuhr.adhaanTime)
+        val dhurStart = Utils.convertAmToPm(prayerData.dhuhr.adhaanTime)
+        val dhurIqamah = Utils.convertAmToPm(prayerData.dhuhr.iqamahTime)
+        binding.dhuhrStarts.text = dhurStart
+        binding.dhuhrIqamah.text = dhurIqamah
+        timeList.add(dhurStart)
 
-        binding.asrStarts.text = prayerData.asr.adhaanTime
-        binding.asrIqamah.text = prayerData.asr.iqamahTime
-        timeList.add(prayerData.asr.adhaanTime)
+        val asrStart = Utils.convertAmToPm(prayerData.asr.adhaanTime)
+        val asrIqamah = Utils.convertAmToPm(prayerData.asr.iqamahTime)
+        binding.asrStarts.text = Utils.convertAmToPm(prayerData.asr.adhaanTime)
+        binding.asrIqamah.text = Utils.convertAmToPm(prayerData.asr.iqamahTime)
+        timeList.add(asrStart)
 
-        binding.maghribStarts.text = prayerData.maghrib.adhaanTime
-        binding.maghribIqamah.text = prayerData.maghrib.iqamahTime
-        timeList.add(prayerData.maghrib.adhaanTime)
+        val maghribStart = Utils.convertAmToPm(prayerData.maghrib.adhaanTime)
+        val maghribIqamah = Utils.convertAmToPm(prayerData.maghrib.iqamahTime)
+        binding.maghribStarts.text = Utils.convertAmToPm(prayerData.maghrib.adhaanTime)
+        binding.maghribIqamah.text = Utils.convertAmToPm(prayerData.maghrib.iqamahTime)
+        timeList.add(maghribStart)
 
+        val ishaStart = Utils.convertAmToPm(prayerData.isha.adhaanTime)
+        val ishaIqamah = Utils.convertAmToPm(prayerData.isha.iqamahTime)
+        binding.ishaStarts.text = Utils.convertAmToPm(prayerData.isha.adhaanTime)
+        binding.ishaIqamah.text = Utils.convertAmToPm(prayerData.isha.iqamahTime)
+        timeList.add(ishaStart)
 
-        binding.ishaStarts.text = prayerData.isha.adhaanTime
-        binding.ishaIqamah.text = prayerData.isha.iqamahTime
-        timeList.add(prayerData.isha.adhaanTime)
-
-        binding.todayDate.text = prayerData.date
-        binding.todayIslamicDate.text = prayerData.hijriDate
+        binding.todayDate.text = Utils.convertAmToPm(prayerData.date)
+        binding.todayIslamicDate.text = Utils.convertAmToPm(prayerData.hijriDate)
 
         binding.sunriseTime.text = "SUNRISE  "+prayerData.sunrise
         binding.ishraqTime.text  = "ISHRAQ  "+ Utils.add15Minutes(prayerData.sunrise)
@@ -130,16 +137,16 @@ class PrayerTimesFragment: Fragment() {
             prayerData.fajr.adhaanTime -> {
                 binding.fajrRow.showBackground()
             }
-            prayerData.dhuhr.adhaanTime -> {
+            dhurStart -> {
                 binding.dhuhrRow.showBackground()
             }
-            prayerData.asr.adhaanTime -> {
+            asrStart -> {
                 binding.asrRow.showBackground()
             }
-            prayerData.maghrib.adhaanTime -> {
+            maghribStart -> {
                 binding.maghribRow.showBackground()
             }
-            prayerData.isha.adhaanTime -> {
+            ishaStart -> {
                 binding.ishaRow.showBackground()
             }
             else -> {

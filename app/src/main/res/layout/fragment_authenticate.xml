@@ -4,23 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/light_white_background"
     tools:context=".ui.MainActivity">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="160dp"
+        android:layout_marginBottom="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        >
+        app:layout_constraintVertical_bias="0.499">
 
         <TextView
             android:id="@+id/usernameLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Username"
+            android:textColor="@color/black"
             app:layout_constraintBottom_toTopOf="@+id/passwordLabel"
             app:layout_constraintEnd_toStartOf="@+id/usernameEditText"
             app:layout_constraintHorizontal_bias="0.5"
@@ -33,7 +37,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
             android:text="demo"
+            android:textColor="@color/black"
+            android:background="@drawable/edittext_border"
             app:layout_constraintBottom_toBottomOf="@+id/usernameLabel"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -45,6 +52,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Password"
+            android:textColor="@color/black"
+
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/usernameLabel"
             app:layout_constraintTop_toBottomOf="@+id/usernameLabel" />
@@ -54,6 +63,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/password"
+            android:background="@drawable/edittext_border"
+            android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="@+id/passwordLabel"
             app:layout_constraintStart_toStartOf="@+id/usernameEditText"
             app:layout_constraintTop_toTopOf="@+id/passwordLabel" />
@@ -61,13 +72,25 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
-        android:id="@+id/validateButton"
+        android:id="@+id/slider_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:text="Validate User"
+        android:layout_marginBottom="12dp"
+        android:text="SLIDER SCREEN"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/prayer_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="PRAYER SCREEN"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/slider_button"
+        app:layout_constraintEnd_toEndOf="@+id/slider_button"
+        app:layout_constraintStart_toStartOf="@+id/slider_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
