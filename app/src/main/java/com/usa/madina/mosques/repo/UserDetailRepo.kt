@@ -1,6 +1,7 @@
 package com.usa.madina.mosques.repo
 
 import android.util.Base64
+import android.util.Log
 import com.usa.madina.mosques.repo.network.ApiResponse
 import com.usa.madina.mosques.repo.network.ServiceApi
 import com.usa.madina.mosques.repo.storage.PreferencesHelper
@@ -27,6 +28,7 @@ class UserDetailRepo @Inject constructor(private val serviceApi: ServiceApi, pri
             val deviceDetailResponse = serviceApi.getDeviceDetails( passKey = "MASJID_DISPLAY" )
             val clientConfigurationResponse = serviceApi.getClientConfigurations()
             val userDataModel = UserDataModel(null, deviceDetailResponse, clientConfigurationResponse)
+            Log.e("MyWay =",userDataModel.configurationModel?.formattedStatus.toString())
             preferencesHelper.saveUserDataModel(userDataModel) // Save to SharedPreferences
             return ApiResponse.Success(userDataModel)
         }

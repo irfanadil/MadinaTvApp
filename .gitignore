@@ -17,3 +17,6 @@ local.properties
 *.apk
 /.idea
 /app/release
+/.idea
+.idea/material_theme_project_new.xml
+
