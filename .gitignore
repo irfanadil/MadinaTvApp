@@ -20,3 +20,9 @@ local.properties
 .idea/gradle.xml
 .idea/compiler.xml
 /.idea
+*.dm
+*.apk
+/.idea
+/app/release
+/.idea
+.idea/material_theme_project_new.xml
