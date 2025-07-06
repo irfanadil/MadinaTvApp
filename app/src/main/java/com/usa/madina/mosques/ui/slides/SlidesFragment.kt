@@ -16,6 +16,7 @@ import java.util.Timer
 import java.util.TimerTask
 import kotlin.getValue
 import com.usa.madina.mosques.R
+import com.usa.madina.mosques.ui.prayers.PrayerTimesFragment
 import com.usa.madina.mosques.ui.slides.data.GalleryItem
 
 class SlidesFragment: Fragment() {
@@ -28,19 +29,10 @@ class SlidesFragment: Fragment() {
     private val handler = Handler(Looper.getMainLooper())
     private lateinit var autoScrollRunnable: Runnable
 
-    private val imagePaths = listOf(
-        "https://media.madinaapps.com/prod/kiosk-cp-media/client_6/slideshow_275/bWFnbm9saWEtMjIxODc4OF8xOTIwLmpwZzE1NzkwNjA0MTM0MTQ=.jpg",
-        "https://media.madinaapps.com/prod/kiosk-cp-media/client_6/gallery-items/a3bcd084-ff5e-4fa4-9f2e-4183c51a51a9.jpg",
-        "https://media.madinaapps.com/prod/kiosk-cp-media/client_6/slideshow_275/c3Vuc2V0LTEzNzMxNzFfMTkyMC5qcGcxNTc5MDYwNDI4Mzkz.jpg",
-        "/storage/emulated/0/DCIM/image4.jpg"
-    )
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         // Force landscape orientation
          ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
-
     }
 
     override fun onCreateView(
@@ -59,19 +51,14 @@ class SlidesFragment: Fragment() {
 
         // Create gallery items with fragments mixed in
         val galleryItems = listOf(
-            GalleryItem.ImageItem("https://example.com/image1.jpg"),
-            GalleryItem.ImageItem("https://example.com/image2.jpg"),
-            //GalleryItem.FragmentItem(CustomFragment()),  // Fragment between images
-            GalleryItem.ImageItem("https://example.com/image3.jpg"),
-            GalleryItem.ImageItem("https://example.com/image4.jpg")
+            GalleryItem.ImageItem( "https://media.madinaapps.com/prod/kiosk-cp-media/client_6/slideshow_275/bWFnbm9saWEtMjIxODc4OF8xOTIwLmpwZzE1NzkwNjA0MTM0MTQ=.jpg"),
+            GalleryItem.ImageItem("https://media.madinaapps.com/prod/kiosk-cp-media/client_6/gallery-items/a3bcd084-ff5e-4fa4-9f2e-4183c51a51a9.jpg"),
+            GalleryItem.FragmentItem(PrayerTimesFragment()),  // Fragment between images
+            GalleryItem.ImageItem("https://media.madinaapps.com/prod/kiosk-cp-media/client_6/slideshow_275/c3Vuc2V0LTEzNzMxNzFfMTkyMC5qcGcxNTc5MDYwNDI4Mzkz.jpg"),
         )
-
         setupViewPager(galleryItems)
         setupAutoScroll(galleryItems.size)
     }
-
-
-
 
     private fun setupViewPager(items: List<GalleryItem>) {
         viewPager = binding.viewPager
@@ -116,12 +103,5 @@ class SlidesFragment: Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
-
-
-
-
-
-
 
 }

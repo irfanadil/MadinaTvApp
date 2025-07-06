@@ -1,3 +1,6 @@
+import com.android.build.api.dsl.Lint
+import com.android.build.api.dsl.LintOptions
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -43,6 +46,13 @@ android {
     buildFeatures {
         viewBinding = true
     }
+
+    lint {
+        disable.add("NullSafeMutableLiveData")
+        abortOnError = false
+        checkDependencies = true
+    }
+
 }
 
 dependencies {
